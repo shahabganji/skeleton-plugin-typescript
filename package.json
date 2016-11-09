@@ -1,67 +1,63 @@
 {
-  "name": "aurelia-skeleton-plugin",
-  "version": "0.3.0",
-  "description": "A starter kit for building an Aurelia plugin.",
+  "name": "aurelia-skeleton-plugin-typescript",
+  "version": "0.0.1",
+  "description": "Create typescript plugins for Aurelia",
   "keywords": [
     "aurelia",
     "plugin",
-    "skeleton"
+    "skeleton",
+    "typescript"
   ],
-  "homepage": "http://aurelia.io",
+  "homepage": "https://github.com/vegarringdal/skeleton-plugin-typescript",
   "bugs": {
-    "url": "https://github.com/aurelia/skeleton-plugin/issues"
+    "url": "https://github.com/vegarringdal/skeleton-plugin-typescript/issues"
   },
-  "license": "CC0-1.0",
-  "author": "Rob Eisenberg <rob@bluespire.com> (http://robeisenberg.com/)",
-  "main": "dist/commonjs/index.js",
+  "license": "MIT",
+  "author": "Vegar Ringdal (vegar.ringdal@gmail.com)",
+  "main": "dist/amd/index.js",
   "repository": {
     "type": "git",
-    "url": "http://github.com/aurelia/skeleton-plugin"
+    "url": "https://github.com/vegarringdal/skeleton-plugin-typescript"
+  },
+  "scripts": {
+    "prepublish": "./node_modules/.bin/typings install"
   },
   "devDependencies": {
-    "aurelia-tools": "^0.1.3",
-    "conventional-changelog": "0.0.11",
-    "del": "^1.1.0",
-    "gulp": "^3.8.10",
-    "gulp-babel": "^5.1.0",
-    "gulp-bump": "^0.1.11",
-    "gulp-yuidoc": "^0.1.2",
-    "gulp-eslint": "^1.0.0",
-    "gulp-sourcemaps": "^1.3.0",
-    "gulp-tslint": "^4.2.1",
-    "gulp-typescript": "^2.9.2",
-    "gulp-plumber": "^0.6.6",
+    "aurelia-tools": "^1.0.0",
+    "browser-sync": "^2.17.5",
+    "gulp-conventional-changelog": "^1.1.0",
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-bump": "^2.5.0",
+    "gulp-changed": "^1.3.2",
+    "gulp-htmlmin": "^3.0.0",
     "gulp-notify": "^2.2.0",
-    "gulp-changed": "^1.1.0",
-    "babel-eslint": "^4.1.3",
-    "jasmine-core": "^2.1.3",
-    "karma": "^0.12.28",
-    "karma-babel-preprocessor": "^5.2.1",
-    "karma-chrome-launcher": "^0.1.7",
-    "karma-coverage": "^0.3.1",
-    "karma-jasmine": "^0.3.5",
-    "karma-jspm": "^1.1.5",
-    "object.assign": "^1.0.3",
-    "require-dir": "^0.1.0",
-    "run-sequence": "^1.0.2",
-    "tslint": "^3.2.0",
-    "typescript": "^1.7.3",
-    "vinyl-paths": "^1.0.0",
-    "yargs": "^2.1.1"
+    "gulp-plumber": "^1.1.0",
+    "gulp-protractor": "3.0.0",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-tslint": "^6.1.3",
+    "gulp-typescript": "^3.1.2",
+    "gulp-yuidoc": "^0.1.2",
+    "object.assign": "^4.0.4",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.2.2",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.2",
+    "typings": "^1.3.2",
+    "vinyl-paths": "^2.1.0",
+    "yargs": "^5.0.0",
+    "merge2": "^1.0.2"
   },
   "jspm": {
+    "registry": "npm",
     "main": "index",
     "format": "amd",
     "directories": {
-      "lib": "dist/amd"
+      "dist": "dist/amd"
     },
-    "dependencies": {
-      "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.0.5"
-    },
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
-    }
+    "devDependencies": {}
+  },
+  "dependencies": {
+    
   }
 }
