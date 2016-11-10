@@ -1,5 +1,5 @@
 // import {computedFrom} from 'aurelia-framework';
-import {TestClass} from 'aurelia-skeleton-plugin-typescript';
+import {HelloWorld} from 'aurelia-skeleton-plugin-typescript';
 
 export class Welcome {
   public heading = 'Welcome to the Aurelia Navigation App!';

@@ -5,26 +5,29 @@
     "outDir": "dist",
     "sourceMap": true,
     "target": "es5",
-    "module": "amd",
+    "module": "system",
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
-    "lib": ["es2015", "dom"],
+    "lib": ["es2017", "dom"],
     "baseUrl": "./",
+    "rootDirs":[
+      "src",
+      "../src"
+    ],
     "paths": {
-      "src/*": ["src/*"]
+      "src/*": ["src/*"],
+      "aurelia-skeleton-plugin-typescript":["../src"]
     }
   },
   "filesGlob": [
     "./src/**/*.ts",
-    "./test/**/*.ts",
     "./typings/index.d.ts",
     "./custom_typings/**/*.d.ts",
-    "./jspm_packages/**/*.d.ts",
-    "../dist/**/*.d.ts"
+    "./jspm_packages/**/*.d.ts"
   ],
   "exclude": [
     "node_modules",

@@ -17,8 +17,8 @@ module.exports = {
   
   doc:'./doc',
   dtsSrc: [
-    './typings/**/*.d.ts',
-    './custom_typings/**/*.d.ts'
+    './sample/typings/**/*.d.ts',
+    './sample/custom_typings/**/*.d.ts'
   ],
   packageName: pkg.name
 };

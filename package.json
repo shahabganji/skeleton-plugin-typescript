@@ -15,6 +15,7 @@
   "license": "MIT",
   "author": "Vegar Ringdal (vegar.ringdal@gmail.com)",
   "main": "dist/amd/index.js",
+  "typings": "dist/commonjs/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/vegarringdal/skeleton-plugin-typescript"

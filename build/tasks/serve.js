@@ -3,7 +3,7 @@ var path = require('path');
 var browserSync = require('browser-sync');
 var paths = require('../pathsSample');
 
-gulp.task('serve', ['dev-build','sample-build'], function(done) {
+gulp.task('serve', ['dev-build', 'sample-build'], function(done) {
   var bs = browserSync.create('Sample server');
 
   var options = {
