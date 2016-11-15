@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": "src",
+    "rootDir": "../",
     "outDir": "dist",
     "sourceMap": true,
     "target": "es5",
@@ -14,17 +14,14 @@
     "moduleResolution": "node",
     "lib": ["es2017", "dom"],
     "baseUrl": "./",
-    "rootDirs":[
-      "src",
-      "../src"
-    ],
     "paths": {
       "src/*": ["src/*"],
-      "aurelia-skeleton-plugin-typescript":["../src"]
+      "aurelia-skeleton-plugin-typescript": ["../src"]
     }
   },
   "filesGlob": [
     "./src/**/*.ts",
+    "./test/**/*.ts",
     "./typings/index.d.ts",
     "./custom_typings/**/*.d.ts",
     "./jspm_packages/**/*.d.ts"

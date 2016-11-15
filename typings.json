@@ -1,6 +1,6 @@
 {
   "name": "aurelia-skeleton-plugin-typescript",
-  "main": "dist/commonjs/index.d.ts",
+  "main": "dist/amd/index.d.ts",
   "dependencies": {
     "aurelia-binding": "github:aurelia/binding",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper",

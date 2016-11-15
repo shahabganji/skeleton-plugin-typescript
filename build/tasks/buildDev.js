@@ -33,7 +33,7 @@ function build(tsProject, outputPath) {
       tsResult.js.pipe(gulp.dest(outputPath))
     ])
     .pipe(sourcemaps.write('.', {
-      includeContent: false,
+      includeContent: true,
       sourceRoot: paths.root
     }))
     .pipe(gulp.dest(outputPath))
