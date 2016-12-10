@@ -5,6 +5,7 @@ var plumber = require('gulp-plumber');
 var assign = Object.assign || require('object.assign');
 var merge = require('merge2');
 var paths = require('../pathsBuild');
+var pathsSample = require('../pathsSample');
 var changed = require('gulp-changed');
 var runSequence = require('run-sequence');
 

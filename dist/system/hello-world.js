@@ -1,10 +1,9 @@
-System.register([], function(exports_1, context_1) {
-    "use strict";
+System.register([], function (exports_1, context_1) {
     var __moduleName = context_1 && context_1.id;
     var HelloWorld;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             HelloWorld = (function () {
                 function HelloWorld() {
                 }
@@ -12,7 +11,7 @@ System.register([], function(exports_1, context_1) {
             }());
             exports_1("HelloWorld", HelloWorld);
         }
-    }
+    };
 });
 
 //# sourceMappingURL=hello-world.js.map

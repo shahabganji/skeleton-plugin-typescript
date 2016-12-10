@@ -1,4 +1,3 @@
-"use strict";
 var HelloWorld = (function () {
     function HelloWorld() {
     }
