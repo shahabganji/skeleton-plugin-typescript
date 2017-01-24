@@ -50,6 +50,7 @@
   },
   "jspm": {
     "registry": "npm",
+    "jspmPackage": true,
     "main": "index",
     "format": "amd",
     "directories": {
@@ -57,7 +58,5 @@
     },
     "devDependencies": {}
   },
-  "dependencies": {
-    
-  }
+  "dependencies": {}
 }
