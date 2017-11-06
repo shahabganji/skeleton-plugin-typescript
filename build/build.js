@@ -2,6 +2,7 @@
 
 
 var gulp = require('gulp');
+var run = require('gulp-run');
 var ts = require('gulp-typescript');
 var sourcemaps = require('gulp-sourcemaps');
 var plumber = require('gulp-plumber');
@@ -63,9 +64,9 @@ function build(tsProject, outputPath) {
     .pipe(tsProject());
 
   return merge([ // Merge the two output streams, so this task is finished when the IO of both operations is done. 
-    tsResult.dts.pipe(gulp.dest(outputPath)),
-    tsResult.js.pipe(gulp.dest(outputPath))
-  ])
+      tsResult.dts.pipe(gulp.dest(outputPath)),
+      tsResult.js.pipe(gulp.dest(outputPath))
+    ])
     .pipe(gulp.dest(outputPath))
 }
 
@@ -173,3 +174,8 @@ gulp.task('build', function (callback) {
   );
 });
 
+
+gulp.task('pack', function () {
+  return run('npm pack').exec()
+    .pipe(gulp.dest('output'));
+});
