@@ -20,9 +20,7 @@
     "type": "git",
     "url": "na"
   },
-  "scripts": {
-    "prepare": "./node_modules/.bin/typings install"
-  },
+  "scripts": {},
   "devDependencies": {
     "@types/bluebird-global": "^3.5.3",
     "aurelia-animator-css": "^1.0.4",
@@ -44,10 +42,7 @@
     "stylus": "^0.54.5",
     "tslint": "^5.8.0",
     "typescript": "2.6.1",
-    "typings": "^2.1.1",
-    "whatwg-fetch": "^2.0.3"
-  },
-  "dependencies": {
+    "whatwg-fetch": "^2.0.3",
     "aurelia-skeleton-plugin-typescript": "../aurelia-skeleton-plugin-typescript-0.5.0.tgz",
     "fuse-box-aurelia-loader": "^2.0.1",
     "fuse-box-typechecker": "^2.6.1"
