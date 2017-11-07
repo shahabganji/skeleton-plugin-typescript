@@ -64,9 +64,9 @@ function build(tsProject, outputPath) {
     .pipe(tsProject());
 
   return merge([ // Merge the two output streams, so this task is finished when the IO of both operations is done. 
-      tsResult.dts.pipe(gulp.dest(outputPath)),
-      tsResult.js.pipe(gulp.dest(outputPath))
-    ])
+    tsResult.dts.pipe(gulp.dest(outputPath)),
+    tsResult.js.pipe(gulp.dest(outputPath))
+  ])
     .pipe(gulp.dest(outputPath))
 }
 
@@ -142,8 +142,6 @@ gulp.task('build-run', function (callback) {
 
 
 gulp.task('check-build', function () {
-  // get typechecker
-
   var TypeHelper = require('../sample/node_modules/fuse-box-typechecker').TypeHelper
   var testWatch = TypeHelper({
     tsConfig: './tsconfig.json',
@@ -165,14 +163,14 @@ gulp.task('check-build', function () {
 
 
 
-
-
 gulp.task('build', function (callback) {
   return runSequence(
     'check-build', ['build-run'],
     callback
   );
 });
+
+
 
 
 gulp.task('pack', function () {

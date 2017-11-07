@@ -8,7 +8,7 @@ var vinylPaths = require('vinyl-paths');
 
 
 
-gulp.task('clean-build', function() {
+gulp.task('clean-build', function () {
   return gulp.src([pathsBuild.output])
     .pipe(vinylPaths(del));
 });

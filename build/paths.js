@@ -11,7 +11,7 @@ module.exports = {
   woff2: appRoot + '**/*.woff2',
   output: outputRoot,
   outputDev: outputDev,
-  doc:'./doc',
+  doc: './doc',
   dtsSrc: [
     './typings/**/*.d.ts',
     './custom_typings/**/*.d.ts'
