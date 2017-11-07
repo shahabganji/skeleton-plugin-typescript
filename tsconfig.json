@@ -15,7 +15,7 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitThis": false,
     "noUnusedLocals": false,
-    "allowUnreachableCode":false,
+    "allowUnreachableCode": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -24,9 +24,7 @@
   },
   "filesGlob": [
     "./src/**/*.ts",
-    "./test/**/*.ts",
-    "./typings/index.d.ts",
-    "./custom_typings/**/*.d.ts"
+    "./test/**/*.ts"
   ],
   "exclude": [
     "node_modules",

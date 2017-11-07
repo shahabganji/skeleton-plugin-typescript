@@ -21,7 +21,7 @@
     "url": "https://github.com/vegarringdal/skeleton-plugin-typescript"
   },
   "scripts": {
-    "prepublish": "./node_modules/.bin/typings install"
+
   },
   "devDependencies": {
     "del": "^3.0.0",
@@ -48,7 +48,9 @@
     },
     "devDependencies": {}
   },
-  "dependencies": {},
+  "dependencies": {
+    "aurelia-framework": "1.1.5"
+  },
   "aurelia": {
     "usedBy": [],
     "build": {
