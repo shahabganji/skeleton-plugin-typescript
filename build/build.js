@@ -10,7 +10,7 @@ var assign = Object.assign || require('object.assign');
 var merge = require('merge2');
 var paths = require('./paths');
 var runSequence = require('run-sequence');
-
+var errorsFound = 0;
 
 
 
@@ -131,10 +131,14 @@ gulp.task('build-css', function () {
 
 
 gulp.task('build-run', function (callback) {
-  return runSequence(
-    'clean-build', ['build-css', 'build-html', 'build-es2015', 'build-amd', 'build-system', 'build-commonjs'],
-    callback
-  );
+  if(errorsFound){
+    console.log("\n Ts/Lint errors found, exiting build\n")
+  } else{
+    return runSequence(
+      'clean-build', ['build-css', 'build-html', 'build-es2015', 'build-amd', 'build-system', 'build-commonjs'],
+      callback
+    );
+  }
 });
 
 
@@ -143,22 +147,16 @@ gulp.task('build-run', function (callback) {
 
 gulp.task('check-build', function () {
   var TypeHelper = require('../sample/node_modules/fuse-box-typechecker').TypeHelper
-  var testWatch = TypeHelper({
+  var checkBuild = TypeHelper({
     tsConfig: './tsconfig.json',
-    name: 'Build checking (I throw error and stop build if ts/lint errors is found)',
+    name: 'Ts/TsLint Build Check',
     basePath: './',
     tsLint: './tslint.json',
     shortenFilenames: true,
-    yellowOnLint: true,
-    throwOnSyntactic: true, // if you want it to throw error
-    throwOnSemantic: true, // if you want it to throw error
-    throwOnGlobal: true, // if you want it to throw error
-    throwOnOptions: true, // if you want it to throw error
-    throwOnTsLint: true // throw on lint errors */
+    yellowOnLint: true
   })
+  errorsFound = checkBuild.runSync('./src')
 
-  testWatch.runSync('./src')
-  return true;
 });
 
 
