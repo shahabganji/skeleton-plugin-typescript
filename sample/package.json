@@ -48,6 +48,7 @@
     "whatwg-fetch": "^2.0.3"
   },
   "dependencies": {
+    "aurelia-skeleton-plugin-typescript": "../aurelia-skeleton-plugin-typescript-0.5.0.tgz",
     "fuse-box-aurelia-loader": "^2.0.1",
     "fuse-box-typechecker": "^2.6.1"
   }
