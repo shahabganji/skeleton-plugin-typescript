@@ -29,7 +29,8 @@
   "exclude": [
     "node_modules",
     "sample",
-    "dist"
+    "dist" , 
+    "build"
   ],
   "atom": {
     "rewriteTsconfig": false
