@@ -8,7 +8,9 @@ const npm = process.platform === "win32" ? "npm.cmd" : "npm";
 const mode = "inherit";
 
 let PLUGIN_NAME = "aurelia-skeleton-plugin-typescript";
-let PLUGIN_VERSION = "0.5.0";
+let PLUGIN_SAMPLE_NAME = "aurelia-skeleton-plugin-typescript-sample";
+let PLUGIN_VERSION = "0.0.1";
+
 
 function spawner(cmd, args, dirname) {
   return new Promise((resolve, reject) => {
@@ -27,6 +29,9 @@ function spawner(cmd, args, dirname) {
   });
 }
 
+this.mainPath = `${__dirname}${process.platform === "win32" ? "\\" : "//"}`
+this.samplePath = `${__dirname}${process.platform === "win32" ? "\\sample" : "//sample"}`
+
 function safeIncreaseVersion(version) {
 
   let theVersion = parseInt(version);
@@ -39,13 +44,15 @@ function safeIncreaseVersion(version) {
   }
 }
 
-function updatePluginPackage() {
+function updateSampleConfig() {
   console.info('Updating plugin package.json...');
+
+  const argVersion = process.argv[2]; // -v
+  const argVersionNumber = process.argv[3]; // eg 1.5.6
+
   let pluginPackageFile = './package.json';
+  let samplePackageFile = './sample/package.json';
   fs.readFile(pluginPackageFile, 'utf8', (err, data) => {
-    if (err) {
-      throw err;
-    }
     let obj = JSON.parse(data);
 
     let versions = new Array();
@@ -55,58 +62,49 @@ function updatePluginPackage() {
     PLUGIN_NAME = obj.name || PLUGIN_NAME;
     PLUGIN_VERSION = obj.version || PLUGIN_VERSION;
 
-    var fileName = PLUGIN_NAME + '-' + PLUGIN_VERSION + '.tgz'; // like aurelia-toolbelt-0.5.6.tgz
-
     if (versions && (versions.length > 0)) {
-      versions[versions.length - 1] = safeIncreaseVersion(versions[versions.length - 1]);
+      if (argVersion != undefined && argVersionNumber == undefined) {
+        versions[versions.length - 1] = safeIncreaseVersion(versions[versions.length - 1]);
+      }
+      if (argVersionNumber != undefined) {
+        versions = argVersionNumber.split('.');
+      }
       console.info(`Version changing ${obj.version} => ${versions.join('.')}`);
       obj.version = versions.join('.');
       PLUGIN_VERSION = versions.join('.');
     }
 
-    obj = JSON.stringify(obj, null, 4);
+    const dev = obj.dependencies;
+    let sampleDep = {};
+    let sample = {};
 
-    fs.writeFile(pluginPackageFile, obj);
+    fs.readFile(samplePackageFile, 'utf8', (err, res) => {
 
-    fs.unlink(fileName, function (error) {});
+      sample = JSON.parse(res);
+      sampleDep = sample.dependencies;
 
-    console.log('Plugin package.json updated.');
+      sample.dependencies = dev;
+      sample.version = PLUGIN_VERSION;
+      sample.name = PLUGIN_SAMPLE_NAME;
 
-  });
+      obj = JSON.stringify(obj, null, 4);
+      let smplObj = JSON.stringify(sample, null, 4);
 
-}
+      fs.writeFile(pluginPackageFile, obj, function (e) { });
+      fs.writeFile(samplePackageFile, smplObj, function (e) { });
 
-function updateSamplePackage() {
-  console.info('Updating sample package.json...');
-  let samplePackageFile = './sample/package.json';
-  fs.readFile(samplePackageFile, 'utf8', (err, data) => {
-    if (err) {
-      throw err;
-    }
-    let obj = JSON.parse(data);
-    
-    obj.dependencies[PLUGIN_NAME] = "../" + PLUGIN_NAME + '-' + PLUGIN_VERSION + '.tgz'; // like ../aurelia-toolbelt-0.5.6.tgz
+      console.log('Plugin package.json updated.');
 
-    obj = JSON.stringify(obj, null, 4);
+    });
 
-    fs.writeFile(samplePackageFile, obj);
-    console.log('Sample package.json updated.');
 
   });
 }
-
-this.mainPath = `${__dirname}${process.platform === "win32" ? "\\":"//"}`
-this.samplePath = `${__dirname}${process.platform === "win32" ? "\\sample":"//sample"}`
 
 let NpmInstallRoot = spawner(npm, ["install"], this.mainPath).then(() => {
 
-  updatePluginPackage();
+  updateSampleConfig();
 
-  let NpmPackRoot = spawner(npm, ["pack"], this.mainPath).then(() => {
-
-    updateSamplePackage();
-
-    let NpmInstallSample = spawner(npm, ["install"], this.samplePath);
-  });
+  let NpmInstallSample = spawner(npm, ["install"], this.samplePath);
 
 });
