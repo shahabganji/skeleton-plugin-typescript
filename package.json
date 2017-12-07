@@ -20,17 +20,16 @@
     "type": "git",
     "url": "https://github.com/vegarringdal/skeleton-plugin-typescript"
   },
-  "scripts": {
-    "setup": "node setup",
-	"setup": "node setup",
-	"setup-version": "node setup -v",
-	"setup-version-specific": "node setup -v 0.5.0",
-    "run-watch": "gulp watch",
-    "test-watch": "./node_modules/.bin/jest --config=jest.config.json --watch",
-    "build": "gulp build",
-    "test": "./node_modules/.bin/jest --config=jest.config.json",
-    "build-all": "node setup & gulp build & gulp test"
-  },
+    "scripts": {
+        "setup": "node setup",
+        "setup-version": "node setup -v",
+        "setup-version-specific": "node setup -v 0.5.0",
+        "run-watch": "./node_modules/.bin/gulp watch",
+        "test-watch": "./node_modules/.bin/jest --config=jest.config.json --watch",
+        "build": "./node_modules/.bin/gulp build",
+        "test": "./node_modules/.bin/jest --config=jest.config.json",
+        "build-all": "npm run setup & npm run build & npm run test"
+    },
   "devDependencies": {
     "@types/jest": "^21.1.6",
     "@types/jsdom": "^11.0.4",
