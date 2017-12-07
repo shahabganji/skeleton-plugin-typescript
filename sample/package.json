@@ -47,6 +47,6 @@
         "fuse-box-typechecker": "^2.6.2"
     },
     "dependencies": {
-        "aurelia-framework": "1.1.5"
+        "aurelia-framework": "^1.1.5"
     }
 }
