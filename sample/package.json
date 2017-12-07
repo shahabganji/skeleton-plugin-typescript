@@ -1,6 +1,6 @@
 {
-    "name": "aurelia-skeleton-navigation-typescript-fusebox",
-    "version": "1.0.0",
+    "name": "aurelia-skeleton-plugin-typescript-sample",
+    "version": "0.5.0",
     "description": "A starter kit for building a standard navigation-style app with Aurelia and TypeScript and fusebox.",
     "keywords": [
         "aurelia",
@@ -47,6 +47,6 @@
         "fuse-box-typechecker": "^2.6.2"
     },
     "dependencies": {
-        "aurelia-skeleton-plugin-typescript": "../aurelia-skeleton-plugin-typescript-0.5.0.tgz"
+        "aurelia-framework": "1.1.5"
     }
 }

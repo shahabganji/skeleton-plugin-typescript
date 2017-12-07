@@ -63,10 +63,10 @@ function updateSampleConfig() {
     PLUGIN_VERSION = obj.version || PLUGIN_VERSION;
 
     if (versions && (versions.length > 0)) {
-      if (argVersion != undefined && argVersionNumber == undefined) {
+      if (argVersion != undefined && argVersionNumber == undefined && (argVersion == '-v' || argVersion == '--Version')) {
         versions[versions.length - 1] = safeIncreaseVersion(versions[versions.length - 1]);
       }
-      if (argVersionNumber != undefined) {
+      if (argVersion != undefined && argVersionNumber != undefined && (argVersion == '-v' || argVersion == '--Version')) {
         versions = argVersionNumber.split('.');
       }
       console.info(`Version changing ${obj.version} => ${versions.join('.')}`);
