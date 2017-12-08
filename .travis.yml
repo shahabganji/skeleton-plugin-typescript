@@ -7,4 +7,4 @@ before_install:
 before_script:
   - node setup
 script: 
-  - yarn run test
+  - ./node_modules/.bin/jest --config=jest.config.json
