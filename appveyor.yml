@@ -12,7 +12,7 @@ install:
   - gulp build
 
 # Post-install test scripts.
-test_script:
+test:
   # Output useful info for debugging.
   - node --version
   - npm --version
